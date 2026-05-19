@@ -1,6 +1,6 @@
 # Guía de Instalación
 
-Instalación completa de PekePBX desde cero en un servidor Ubuntu 22.04 LTS.
+Instalación completa de PekePBX desde cero en un servidor Debian 12 (Bookworm).
 
 ---
 
@@ -8,7 +8,7 @@ Instalación completa de PekePBX desde cero en un servidor Ubuntu 22.04 LTS.
 
 | Componente | Versión |
 |------------|---------|
-| OS | Ubuntu 22.04 LTS |
+| OS | Debian 12 (Bookworm) |
 | PHP | 8.2 |
 | Node.js | 18 LTS |
 | MySQL / MariaDB | 8.0+ |
@@ -33,9 +33,12 @@ apt install -y git curl unzip ffmpeg
 
 ## 2. Instalar PHP 8.2
 
+En Debian 12 se usa el repositorio de Sury (equivalente al ondrej/php de Ubuntu):
+
 ```bash
-apt install -y software-properties-common
-add-apt-repository ppa:ondrej/php
+apt install -y apt-transport-https lsb-release ca-certificates curl
+curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 apt update
 apt install -y php8.2 php8.2-fpm php8.2-cli php8.2-mysql php8.2-redis \
     php8.2-xml php8.2-mbstring php8.2-curl php8.2-zip php8.2-gd \
