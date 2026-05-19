@@ -4,8 +4,9 @@ Sistema VoIP/PBX multi-tenant construido sobre Asterisk, con backend en Laravel 
 
 ## Índice
 
+- [Instalación](docs/instalacion.md)
 - [Arquitectura](docs/arquitectura.md)
-- [Instalación y Configuración](docs/configuracion.md)
+- [Configuración](docs/configuracion.md)
 - [API REST](docs/api.md)
 - [WebSockets y Tiempo Real](docs/websockets.md)
 - [Módulos y Funcionalidades](docs/modulos.md)
